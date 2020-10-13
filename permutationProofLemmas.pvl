@@ -151,6 +151,7 @@ class Test {
 	requires i <= j;
 	requires ys == swap(xs, i, j, 0);
 	ensures (\forall int l; l>=0 && l<|xs|; counter(xs, xs[l]) == counter(ys, xs[l]));
+	ensures (\forall int l; l>=0 && l<|ys|; counter(ys, ys[l]) == counter(xs, ys[l]));
 	void lemma_swap_permutation_all(seq<int> xs, seq<int> ys, int i, int j){
 		int k = 0;
 
@@ -174,7 +175,7 @@ class Test {
 
 		
 	}	
-	
+	     
 	requires i >= 0 && i < |xs|;
 	requires j >= 0 && j < |xs|;
 	requires i <= j;
